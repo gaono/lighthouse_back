@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "start": "node dist/server.js",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec ts-node src/server.ts"
+    "dev": "nodemon --watch 'src/**/*.ts' --exec ts-node src/server.ts",
+    "migrate": "node-pg-migrate up -c ./scripts/node-pg-migrate.config.js",
+    "generate-types": "node ./scripts/generate-types.js"
   },
   "repository": {
     "type": "git",
@@ -32,5 +34,10 @@
     "prettier": "^3.5.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "node-pg-migrate": "^8.0.3",
+    "pg": "^8.16.2",
+    "pg-to-ts": "^4.1.1"
   }
 }
